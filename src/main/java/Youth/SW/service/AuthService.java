@@ -1,7 +1,6 @@
 package Youth.SW.service;
 
 import Youth.SW.DTO.UserDTO;
-import Youth.SW.StaticMethod;
 import Youth.SW.entity.UserInfo;
 import Youth.SW.repository.UserInfoRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,10 +12,18 @@ import javax.servlet.http.HttpSession;
 
 @Service
 @RequiredArgsConstructor
-public class HomeService {
+public class AuthService {
 
     private final UserInfoRepository userInfoRepository;
-    private final StaticMethod staticMethod;
+
+    public boolean ifUserExist(UserInfo userInfo){
+
+        if(userInfo == null){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
     public String login(UserDTO form, HttpServletRequest request){
 
@@ -24,7 +31,7 @@ public class HomeService {
         String id = "";
         UserInfo exInfo = userInfoRepository.findByUserId(form.getUserId());
 
-        if(staticMethod.ifUserExist(exInfo)){
+        if(ifUserExist(exInfo)){
             id = "exist";
         }
 

@@ -1,7 +1,7 @@
 package Youth.SW.controller;
 
 import Youth.SW.DTO.UserDTO;
-import Youth.SW.service.HomeService;
+import Youth.SW.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +14,9 @@ import java.io.PrintWriter;
 
 @Controller
 @RequiredArgsConstructor
-public class HomeController {
+public class AuthController {
 
-    private final HomeService homeService;
+    private final AuthService homeService;
 
     @GetMapping("/")
     public String login(){

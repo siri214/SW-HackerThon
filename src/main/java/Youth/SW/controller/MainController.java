@@ -68,11 +68,11 @@ public class MainController {
         return "redirect:/App";
     }
 
-    @GetMapping("/App/addImg")
-    public String addImg(){
-
-        return "addExp";
-    }
+//    @RequestMapping("/App/addImg")
+//    public String addImg(){
+//
+//        return "addExp";
+//    }
 
     @PostMapping("/App/addExp")
     public String addExp(AppDTO form, String imgPath){
