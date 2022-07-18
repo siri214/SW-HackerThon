@@ -2,12 +2,12 @@ git p<html>
 
 <head>
     <meta charset="UTF-8">
-    <title>Sign In</title>
+    <title>Login</title>
     <meta name="description" content="Login - Register Template">
     <meta name="author" content="Lorenzo Angelino aka MrLolok">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="main.css">
     <style>
         body {
             background-color: #303641;
@@ -16,15 +16,15 @@ git p<html>
 </head>
 
 <body>
-    <div id="container-signin">
+    <div id="container-login">
         <div id="title">
-            <i class="material-icons lock">lock</i> Sign In
+            <i class="material-icons lock">lock</i> Login
         </div>
 
         <form>
             <div class="input">
                 <div class="input-addon">
-                    <i class="material-icons">person</i>
+                    <i class="material-icons">face</i>
                 </div>
                 <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off">
             </div>
@@ -38,37 +38,25 @@ git p<html>
                 <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
             </div>
 
-
-           
-            <div class ="input">
-                <div class="input-addon">
-                    <i class="material-icons">face</i>
-                </div>
-                <input id="name" placeholder="Name" type = "text" required class="validate" autocomplete="off">
+            <div class="remember-me">
+                <input type="checkbox">
+                <span style="color: #DDD">Remember Me</span>
             </div>
-           
-            <div class="input">
-                <div class="input-addon">
-                    <i class="material-icons">work</i>
-                </div>
-                <input id="select" type="select" required class="validate" autocomplete="off"> 
-                <select>
-                    <option class="input-addon" value="none" selected>===직업===</option>
-                    <option value="student">학생</option>
-                    <option value="job1">job1</option>
-                    <option value="job2">job2</option>
-                    <option value="job3">job3</option></select>    
-                
-                </input>
-            </div>    
 
-            <div>
-                <input type="submit" value="Sign In">
-            </div>
-            
+            <input type="submit" value="Log In" />
         </form>
 
-       
+        <div class="forgot-password">
+            <a href="#">Forgot your password?</a>
+        </div>
+        <div class="privacy">
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="register">
+            Don't have an account yet?
+            <a href="#"><button id="register-link">Register here</button></a>
+        </div>
     </div>
 </body>
 
