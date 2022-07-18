@@ -15,7 +15,11 @@ public class HomeController {
 
     private final HomeService homeService;
 
+    @GetMapping("/")
+    public String login(){
 
+        return "login.html";
+    }
     @GetMapping("/join")
     public String join(){
 
