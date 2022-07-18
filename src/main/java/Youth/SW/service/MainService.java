@@ -86,7 +86,7 @@ public class MainService {
             app.setRecApp(ainfo.getRecApp());
             app.setExp(ainfo.getExp());
             app.setJob(ainfo.getJob());
-            app.setRid(ainfo.getRid().toString());
+            app.setRid(ainfo.getId().toString());
             app.setComment(com);
 
         }catch (Exception e){

@@ -15,10 +15,11 @@ public class HomeService {
 
     private final UserInfoRepository userInfoRepository;
 
-    public String login(HttpServletRequest request, UserDTO form){
+    public String login(UserDTO form, HttpServletRequest request){
 
         String result = "";
         UserInfo exInfo = userInfoRepository.findByUserId(form.getUserId());
+
 
         try{
 
@@ -30,7 +31,7 @@ public class HomeService {
                     session.setAttribute("uid", exInfo.getId());
                     session.setMaxInactiveInterval(1800);
 
-                    result = "redirect/main";
+                    result = "redirect:/main";
                 }else{
                     System.out.println("비밀번호가 틀립니다.");
                     result = "redirect:/";

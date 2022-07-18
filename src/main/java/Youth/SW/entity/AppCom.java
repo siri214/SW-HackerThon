@@ -9,13 +9,10 @@ import javax.persistence.*;
 public class AppCom {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "COMMENT_ID")
     private Long id;
 
-    @Column(name = "APP_ID")
     private String rid;
 
-    @Column(name = "APP_COMMENT")
     private String appCom;
 
     public AppCom(){

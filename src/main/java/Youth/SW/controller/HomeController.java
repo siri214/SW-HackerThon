@@ -18,7 +18,7 @@ public class HomeController {
     @GetMapping("/")
     public String login(){
 
-        return "login.html";
+        return "login";
     }
     @GetMapping("/join")
     public String join(){
@@ -35,9 +35,10 @@ public class HomeController {
     }
 
     @PostMapping("/loginpro")
-    public String loginpro(HttpServletRequest request, UserDTO form){
+    public String loginpro(UserDTO form, HttpServletRequest request){
 
-        String result = homeService.login(request, form);
+
+        String result = homeService.login(form, request);
 
         return result;
     }

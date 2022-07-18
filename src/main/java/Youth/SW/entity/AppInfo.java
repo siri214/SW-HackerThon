@@ -10,22 +10,17 @@ import java.util.List;
 public class AppInfo {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "RID")
-    private Long rid;
+    private Long id;
 
-    @Column(name = "JOB")
     private String job;
 
-    @Column(name = "RECOMMEND_APP")
     private String recApp;
 
-    @Column(name = "APP_URL")
     private String appURL;
 
-    @Column(name = "EXPLANATION")
     private String exp;
 
-    @Column(name = "IMG_PATH")
+
     private String imgPath;
 
     @OneToMany(mappedBy = "appInfo")

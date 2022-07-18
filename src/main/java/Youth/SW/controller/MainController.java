@@ -20,12 +20,12 @@ public class MainController {
 
     private final MainService mainService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public String main(HttpServletRequest request, Model model){
 
-        HttpSession session = request.getSession();
-        String job = session.getAttribute("job").toString();
-        model.addAttribute(mainService.appList(job));
+//        HttpSession session = request.getSession();
+//        String job = session.getAttribute("job").toString();
+//        model.addAttribute(mainService.appList(job));
 
         return "main";
     }
