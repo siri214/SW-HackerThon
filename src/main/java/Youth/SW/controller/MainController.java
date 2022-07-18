@@ -2,6 +2,7 @@ package Youth.SW.controller;
 
 import Youth.SW.DTO.AppDTO;
 import Youth.SW.service.MainService;
+import Youth.SW.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,13 +20,16 @@ import javax.servlet.http.HttpSession;
 public class MainController {
 
     private final MainService mainService;
+    private final UserService userService;
 
     @GetMapping("")
     public String main(HttpServletRequest request, Model model){
 
-//        HttpSession session = request.getSession();
-//        String job = session.getAttribute("job").toString();
-//        model.addAttribute(mainService.appList(job));
+        HttpSession session = request.getSession();
+        Long uid = Long.parseLong(session.getAttribute("uid").toString());
+        String job = userService.getJob(uid);
+
+        model.addAttribute(mainService.appList(job));
 
         return "main";
     }

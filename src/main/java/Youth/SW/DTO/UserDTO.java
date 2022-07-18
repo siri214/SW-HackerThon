@@ -9,6 +9,7 @@ public class UserDTO {
     public String userName;
     public String userId;
     public String userPw;
+    public String userJob;
     public String bookMark;
 
 
