@@ -21,12 +21,12 @@
         <i class="material-icons lock">lock</i> Sign In
     </div>
 
-    <form>
+    <form action="/signin/signpro" method="post">
         <div class="input">
             <div class="input-addon">
                 <i class="material-icons">person</i>
             </div>
-            <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off">
+            <input name="userId" placeholder="Username" type="text" >
         </div>
 
         <div class="clearfix"></div>
@@ -35,7 +35,7 @@
             <div class="input-addon">
                 <i class="material-icons">vpn_key</i>
             </div>
-            <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
+            <input name="userPw" placeholder="Password" type="password" >
         </div>
 
 
@@ -43,7 +43,7 @@
             <div class="input-addon">
                 <i class="material-icons">face</i>
             </div>
-            <input id="name" placeholder="Name" type = "text" required class="validate" autocomplete="off">
+            <input name="userName" placeholder="Name" type = "text" required class="validate" autocomplete="off">
         </div>
 
         <div class="input">
@@ -51,7 +51,7 @@
                 <i class="material-icons">work</i>
             </div>
             <div>
-            <select>
+            <select name="userJob">
                 <option value="none" selected>===직업===</option>
                 <option value="student">학생</option>
                 <option value="job1">job1</option>

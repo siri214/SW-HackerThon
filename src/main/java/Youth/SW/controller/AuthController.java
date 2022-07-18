@@ -23,14 +23,14 @@ public class AuthController {
 
         return "login";
     }
-    @GetMapping("/join")
-    public String join(){
+    @GetMapping("/signin")
+    public String signIn(){
 
-        return "joinForm";
+        return "signin";
     }
 
-    @PostMapping("/joinpro")
-    public String joinpro(HttpServletRequest request, UserDTO form){
+    @PostMapping("/signinpro")
+    public String signinpro(HttpServletRequest request, UserDTO form){
 
         String result = homeService.join(form);
 
