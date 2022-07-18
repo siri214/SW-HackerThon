@@ -3,6 +3,7 @@ package Youth.SW.entity;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -26,6 +27,9 @@ public class AppInfo {
 
     @Column(name = "IMG_PATH")
     private String imgPath;
+
+    @OneToMany(mappedBy = "appInfo")
+    private List<Likes> likeList;
 
     public AppInfo(){
 

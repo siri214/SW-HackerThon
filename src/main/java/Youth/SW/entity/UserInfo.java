@@ -3,6 +3,7 @@ package Youth.SW.entity;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,6 +28,9 @@ public class UserInfo {
 
     @Column(name = "BOOK_MARK")
     private String bookMark;
+
+    @OneToMany(mappedBy = "userInfo")
+    private List<Likes> likeList;
 
     public UserInfo(){
 

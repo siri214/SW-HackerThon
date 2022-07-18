@@ -35,7 +35,6 @@ public class MainService {
                     .build();
 
 
-
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -44,19 +43,26 @@ public class MainService {
 
     public void addCom(AppDTO form){
 
-        AppCom saveCom = new AppCom.Builder()
-                .rid(form.getRid())
-                .appCom(form.getSComment())
-                .build();
+        try{
+
+            AppCom saveCom = new AppCom.Builder()
+                    .rid(form.getRid())
+                    .appCom(form.getSComment())
+                    .build();
 
 
-        appComRepository.save(saveCom);
+            appComRepository.save(saveCom);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     public List<AppInfo> appList(String userJob){
 
-        List<AppInfo> list = new ArrayList<>();
-        list = appInfoRepository.findByJob(userJob);
+
+        List<AppInfo> list = appInfoRepository.findByJob(userJob);
 
         return list;
     }
