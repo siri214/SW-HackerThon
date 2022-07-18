@@ -12,5 +12,5 @@ import java.util.List;
 public interface AppInfoRepository extends JpaRepository<AppInfo, Long> {
 
     @Query("select a from AppInfo as a where a.job = :job")
-    public List<AppInfo> findByJob(@Param("job") String job);
+    List<AppInfo> findByJob(@Param("job") String job);
 }
