@@ -23,6 +23,6 @@ public class FileController {
         files.transferTo(dest);
             // TODO
 
-        return "addExp";
+        return "AppExplain";
     }
 }
