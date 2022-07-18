@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @Controller
 @RequiredArgsConstructor
@@ -35,11 +38,23 @@ public class HomeController {
     }
 
     @PostMapping("/loginpro")
-    public String loginpro(UserDTO form, HttpServletRequest request){
+    public void loginpro(UserDTO form, HttpServletRequest request, HttpServletResponse res) throws IOException {
 
 
         String result = homeService.login(form, request);
 
-        return result;
+        if(result.equals("fail")){
+            res.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = res.getWriter();
+            out.println("<script>alert('아이디 혹은 비밀번호가 일치하지 않습니다..'); location.href='/';</script>");
+            out.flush();
+
+        }else{
+            res.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = res.getWriter();
+            out.println("<script>alert('로그인 성공!'); location.href='/main';</script>");
+            out.flush();
+        }
+
     }
 }
