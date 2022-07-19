@@ -146,7 +146,7 @@ input[type=submit] {
     cursor: pointer;
     border-radius: 3px;
     margin-top:50px;
-    margin-right:100px;
+    margin-right: auto;
 }
 
 .register {
@@ -171,4 +171,10 @@ input[type=submit] {
     border: 0 none;
     cursor: pointer;
     border-radius: 3px;
+}
+
+select{
+    width:100px;
+    height: 30px;
+
 }
