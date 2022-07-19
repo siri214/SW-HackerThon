@@ -28,7 +28,7 @@ public class MainService {
                     .recApp(form.getAppName())
                     .appURL(form.getAppURL())
                     .exp(form.getAppExp())
-                    .imgPath(form.getImgPath())
+                    .imgPath(form.getImgName())
                     .build();
             System.out.println("pass3");
         }catch (Exception e){
@@ -43,27 +43,24 @@ public class MainService {
 
         List<AppInfo> list = appInfoRepository.findByJob(userJob);
 
+
         return list;
     }
 
     public AppDTO appInfo(String rid){
 
-        AppDTO app = new AppDTO();
+
         List<String> com = new ArrayList<>();
+        AppDTO app = new AppDTO();
 
         try{
 
             Optional<AppInfo> info = appInfoRepository.findById(Long.parseLong(rid));
 
             AppInfo ainfo = info.orElseThrow(NoSuchElementException::new);
+            AppDTO app1 = new AppDTO(ainfo);
 
-
-            app.setImgPath(ainfo.getImgPath());
-            app.setAppURL(ainfo.getAppURL());
-            app.setAppName(ainfo.getRecApp());
-            app.setAppExp(ainfo.getExp());
-            app.setJob(ainfo.getJob());
-            app.setRid(ainfo.getId().toString());
+            app = app1;
 
 
         }catch (Exception e){
