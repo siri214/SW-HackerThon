@@ -32,7 +32,7 @@ public class LikeController {
         HttpSession session = request.getSession();
         Long uid = Long.parseLong(session.getAttribute("uid").toString());
         UserInfo user = userInfoRepository.findById(uid).orElseThrow(NoSuchElementException::new);
-
+        String job = user.getUserJob();
         String page = "";
 
         boolean result = false;
@@ -43,7 +43,7 @@ public class LikeController {
 
 
 
-        return "redirect:/main";
+        return "redirect:/main/search/"+ job;
     }
 
 }

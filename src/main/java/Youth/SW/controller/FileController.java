@@ -25,7 +25,7 @@ public class FileController {
             // TODO
 
         model.addAttribute("filepath", dest);
-        System.out.println("pass");
+
         return "AppExplain";
     }
 }

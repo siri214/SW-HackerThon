@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 
 @Service
@@ -21,12 +22,14 @@ public class LikeService {
     public boolean addLike(UserInfo user, Long appId) {
         AppInfo appInfo = appInfoRepository.findById(appId).orElseThrow();
 
+
         //중복 좋아요 방지
         if(isNotAlreadyLike(user, appInfo)) {
             likeRepository.save(new Likes(user, appInfo));
             return true;
         }else {
-            likeRepository.delete(new Likes(user, appInfo));
+            Likes likes = likeRepository.findByUserInfoAndAppInfo(user, appInfo).orElseThrow(NoSuchElementException::new);
+            likeRepository.delete(likes);
             return false;
         }
 

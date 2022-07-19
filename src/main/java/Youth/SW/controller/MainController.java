@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -62,7 +64,14 @@ public class MainController {
             count.add(i, likeService.getCount(app.get(i)));
             list.get(i).setCount(count.get(i));
         }
-        System.out.println(list.get(0).getCount());
+
+        Collection<AppDTO> sortList = list;
+
+        sortList
+        for(Board board : boardList) {
+            System.out.println(board);
+        }
+        출처: https://offbyone.tistory.com/154 [쉬고 싶은 개발자:티스토리]
         model.addAttribute("app", list);
 
         return "job";
