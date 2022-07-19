@@ -25,6 +25,17 @@ public class UserService {
         return result;
     }
 
+    public String getName(Long uid){
+
+        UserInfo userInfo = userInfoRepository.findById(uid).orElseThrow(NoSuchElementException::new);
+        UserDTO user = new UserDTO();
+
+        user.setUserName(userInfo.getUserName());
+        String result = user.getUserName();
+
+        return result;
+    }
+
     public Long getUidByUserId(String userId){
 
         UserInfo userInfo = userInfoRepository.findByUserId(userId);

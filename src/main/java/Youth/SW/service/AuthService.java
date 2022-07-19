@@ -67,19 +67,29 @@ public class AuthService {
     public String join(UserDTO form){
 
         String result = "";
+        String id = "";
 
         try{
 
-            UserInfo user = new UserInfo.Builder()
-                    .userId(form.getUserId())
-                    .userPw(form.getUserPw())
-                    .userName(form.getUserName())
-                    .userJob(form.getUserJob())
-                    .build();
+            UserInfo exInfo = userInfoRepository.findByUserId(form.getUserId());
 
-            userInfoRepository.save(user);
+            if(ifUserExist(exInfo)){
+                id = "exist";
+                result = "fail";
+            }else {
+                UserInfo user = new UserInfo.Builder()
+                        .userId(form.getUserId())
+                        .userPw(form.getUserPw())
+                        .userName(form.getUserName())
+                        .userJob(form.getUserJob())
+                        .build();
 
-            result = "sucsess";
+                userInfoRepository.save(user);
+
+                result = "sucsess";
+            }
+
+
 
         }catch (Exception e){
             e.printStackTrace();

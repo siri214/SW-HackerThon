@@ -19,22 +19,43 @@ public class MainService {
 
     private final AppInfoRepository appInfoRepository;
 
-    public void addApp(AppDTO form){
+    public boolean appExist(AppDTO form){
+        AppInfo app = appInfoRepository.findByAppURL(form.getAppURL());
+
+        if(app != null){
+            return true;
+        }
+
+        return false;
+
+    }
+    public String addApp(AppDTO form){
+
+        String result = "";
 
         try{
-            System.out.println("pass2");
-            AppInfo app = new AppInfo.Builder()
-                    .job(form.getJob())
-                    .recApp(form.getAppName())
-                    .appURL(form.getAppURL())
-                    .exp(form.getAppExp())
-                    .imgPath(form.getImgName())
-                    .build();
-            System.out.println("pass3");
+
+            if(appExist(form)){
+                result = "fail";
+            }else {
+                AppInfo app = new AppInfo.Builder()
+                        .job(form.getJob())
+                        .recApp(form.getAppName())
+                        .appURL(form.getAppURL())
+                        .exp(form.getAppExp())
+                        .imgPath(form.getImgName())
+                        .build();
+
+                appInfoRepository.save(app);
+
+                result = "sucsess";
+            }
+
         }catch (Exception e){
             e.printStackTrace();
         }
 
+        return result;
     }
 
 
@@ -59,36 +80,4 @@ public class MainService {
         return app;
     }
 
-    public AppDTO appInfo(Long id){
-
-
-        List<String> com = new ArrayList<>();
-        AppDTO app = new AppDTO();
-
-        try{
-
-            Optional<AppInfo> info = appInfoRepository.findById(id);
-
-            AppInfo ainfo = info.orElseThrow(NoSuchElementException::new);
-            AppDTO app1 = new AppDTO(ainfo);
-
-            app = app1;
-
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-
-        return app;
-
-    }
-
-    public AppInfo getApp(Long id){
-
-            Optional<AppInfo> info = appInfoRepository.findById(id);
-            AppInfo ainfo = info.orElseThrow(NoSuchElementException::new);
-
-        return ainfo;
-    }
 }

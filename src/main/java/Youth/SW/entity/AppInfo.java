@@ -28,6 +28,8 @@ public class AppInfo {
     @OneToMany(mappedBy = "appInfo")
     private List<Likes> likeList;
 
+
+
     public AppInfo(){
 
     }
@@ -64,6 +66,7 @@ public class AppInfo {
             this.imgName = imgName;
             return this;
         }
+
 
         public AppInfo build(){
             return new AppInfo(this);

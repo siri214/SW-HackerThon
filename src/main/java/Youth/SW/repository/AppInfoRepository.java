@@ -13,4 +13,6 @@ public interface AppInfoRepository extends JpaRepository<AppInfo, Long> {
 
     @Query("select a from AppInfo as a where a.job = :job")
     List<AppInfo> findByJob(@Param("job") String job);
+
+    AppInfo findByAppURL(String appURL);
 }

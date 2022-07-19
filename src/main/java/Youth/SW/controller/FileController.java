@@ -20,7 +20,7 @@ public class FileController {
     public String upload(@RequestParam(value = "image", required = false) MultipartFile files, Model model) throws Exception {
 
         String originalfileName = files.getOriginalFilename();
-        File dest = new File("/Users/laykis/Desktop/img/" + originalfileName);
+        File dest = new File("/Users/laykis/Desktop/image/" + originalfileName);
         files.transferTo(dest);
             // TODO
 

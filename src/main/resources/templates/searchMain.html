@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <title>AppJob</title>
-        <link rel="stylesheet" type="text/css" href="./css/main.css" />
+        <link rel="stylesheet" type="text/css" href="/css/searchMain.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
@@ -17,8 +17,8 @@
             <a href="main.html" style="color:#303641">JobApp</a>
         </h1>
         <div class="member">
-            <img src="./pictures/person.png">
-            <p>정가영/학생</p>
+            <img src="./person.png">
+            <p th:text="${userName} + '/' + ${job}">
             <br>
         </div>
     </header>
@@ -27,8 +27,10 @@
         <hr style="border: 0.1px solid #303641; background-color: #303641;">
         <div class="search">
             <br><br><br><br><br>
-            <input type="text" placeholder="직업을 입력하세요.">
-            <button type="submit">검색</button>
+            <form action="/main/search" method="post">
+                <input type="text" placeholder="직업을 입력하세요.">
+                <button type="submit">검색</button>
+            </form>
         </div>
     </nav>
 

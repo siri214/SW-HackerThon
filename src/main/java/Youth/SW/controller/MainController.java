@@ -3,6 +3,7 @@ package Youth.SW.controller;
 import Youth.SW.DTO.AppDTO;
 import Youth.SW.DTO.UserDTO;
 import Youth.SW.entity.AppInfo;
+import Youth.SW.entity.UserInfo;
 import Youth.SW.service.LikeService;
 import Youth.SW.service.MainService;
 import Youth.SW.service.UserService;
@@ -15,11 +16,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -37,16 +38,24 @@ public class MainController {
         HttpSession session = request.getSession();
         Long uid = Long.parseLong(session.getAttribute("uid").toString());
         String job = userService.getJob(uid);
+        String name = userService.getName(uid);
 
         model.addAttribute("job", job);
+        model.addAttribute("userName", name);
 
         return "searchMain";
     }
 
     @PostMapping("/search")
-    public String Search(UserDTO user, Model model){
+    public String Search(UserDTO user, Model model, HttpServletRequest request){
 
-        model.addAttribute(mainService.appList(user.getUserJob()));
+        HttpSession session = request.getSession();
+        Long uid = Long.parseLong(session.getAttribute("uid").toString());
+        String job = userService.getJob(uid);
+        String name = userService.getName(uid);
+
+        model.addAttribute("job", job);
+        model.addAttribute("userName", name);
 
         return "searchMain";
     }
@@ -65,13 +74,6 @@ public class MainController {
             list.get(i).setCount(count.get(i));
         }
 
-        Collection<AppDTO> sortList = list;
-
-        sortList
-        for(Board board : boardList) {
-            System.out.println(board);
-        }
-        출처: https://offbyone.tistory.com/154 [쉬고 싶은 개발자:티스토리]
         model.addAttribute("app", list);
 
         return "job";
@@ -81,21 +83,30 @@ public class MainController {
     @GetMapping("/App")
     public String App(AppDTO form, Model model){
 
-
-
         return "AddAppIcon";
 
     }
 
-
-
     @PostMapping("/App/addExp")
-    public String addExp(AppDTO form){
+    public void addExp(AppDTO form, HttpServletRequest request, HttpServletResponse res) throws IOException {
+
+        HttpSession session = request.getSession();
+        Long uid = Long.parseLong(session.getAttribute("uid").toString());
+
+        String loc = userService.getJob(uid);
+        if(mainService.addApp(form).trim().equals("fail")){
+            res.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = res.getWriter();
+            out.println("<script>alert('존재하는 앱입니다.'); location.href='/main';</script>");
+            out.flush();
+        }else {
+            res.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = res.getWriter();
+            out.println("<script>alert('등록 성공'); location.href='/main';</script>");
+            out.flush();
+        }
 
 
-        mainService.addApp(form);
-
-        return "redirect:/App";
 
     }
 
