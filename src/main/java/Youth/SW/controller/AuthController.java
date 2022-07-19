@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final AuthService homeService;
+    private final AuthService authService;
 
     @GetMapping("/")
     public String login(){
@@ -29,19 +29,33 @@ public class AuthController {
         return "signin";
     }
 
-    @PostMapping("/signinpro")
-    public String signinpro(HttpServletRequest request, UserDTO form){
+    @PostMapping("/signin/signpro")
+    public void signinpro(UserDTO form, HttpServletResponse res) throws IOException {
 
-        String result = homeService.join(form);
+        String result = authService.join(form);
 
-        return result;
+        if(result.trim().equals("sucsess")){
+
+            res.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = res.getWriter();
+            out.println("<script>alert('회원가입 완료'); location.href='/';</script>");
+            out.flush();
+        }else{
+
+            res.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = res.getWriter();
+            out.println("<script>alert('알 수 없는 오류입니다. 다시 시도해주세요.'); location.href='/signin';</script>");
+            out.flush();
+        }
+
+
     }
 
     @PostMapping("/loginpro")
     public void loginpro(UserDTO form, HttpServletRequest request, HttpServletResponse res) throws IOException {
 
 
-        String result = homeService.login(form, request);
+        String result = authService.login(form, request);
 
         if(result.equals("fail")){
             res.setContentType("text/html; charset=UTF-8");

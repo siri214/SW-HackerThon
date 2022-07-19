@@ -77,15 +77,14 @@ input[type=password]:focus {
     border: 1px solid #373b3d;
 }
 
-input[type=select]{
-    color: #949494;
-    margin-top:-10px;
-    background-color: #373b3d;
-    border: 1px solid #373b3d;
-    padding: 6px 0px;
-    border-radius: 3px;
-}
 
+select{
+    width:200px;
+    height: 30px;
+    border:3px solid #996;
+    border-radius:3px;
+    font-family:'Raleway', sans-serif;
+}
 
 .forgot-password {
     position: relative;
@@ -146,7 +145,7 @@ input[type=submit] {
     cursor: pointer;
     border-radius: 3px;
     margin-top:50px;
-    margin-right:100px;
+    margin-right: auto;
 }
 
 .register {
@@ -172,3 +171,4 @@ input[type=submit] {
     cursor: pointer;
     border-radius: 3px;
 }
+

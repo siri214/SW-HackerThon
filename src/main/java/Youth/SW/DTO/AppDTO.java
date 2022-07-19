@@ -9,10 +9,9 @@ public class AppDTO {
 
     private String rid;
     private String job;
-    private String recApp;
+    private String appName;
     private String appURL;
-    private String exp;
+    private String appExp;
     private String imgPath;
-    private String sComment;
-    private List<String> comment;
+
 }

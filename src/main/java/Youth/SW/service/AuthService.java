@@ -74,6 +74,7 @@ public class AuthService {
                     .userId(form.getUserId())
                     .userPw(form.getUserPw())
                     .userName(form.getUserName())
+                    .userJob(form.getUserJob())
                     .build();
 
             userInfoRepository.save(user);
@@ -82,6 +83,7 @@ public class AuthService {
 
         }catch (Exception e){
             e.printStackTrace();
+            result = "fail";
         }
 
         return result;
