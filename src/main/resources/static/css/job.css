@@ -1,0 +1,10 @@
+body div {
+    background-color:antiquewhite;
+    width: 1000px;
+    height: 250px;
+}
+img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
