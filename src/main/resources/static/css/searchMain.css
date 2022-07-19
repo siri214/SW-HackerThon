@@ -4,6 +4,7 @@
 body {
     font-family:'Raleway', sans-serif;
     font-family: 'Nanum Gothic', sans-serif;
+    background-color: #F4F3F0;
 }
 header {
     width: 100%;
@@ -25,10 +26,18 @@ nav {
     border:#303641;
     border-bottom: 1px #303641;
     border: 1px solid gray;
+    border-radius: 10px;
     position: relative;
-    left: 1200px;
-    width: 240px;
+    left: 1250px;
+    width: 180px;
     height: 60px;
+}
+
+.member img {
+    margin-top: 3px;
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
 }
 
 .search {
@@ -44,6 +53,7 @@ nav {
     font-size: 18px;
     border: none;
     border-bottom: 1px black solid;
+    border-radius: 10px;
 }
 
 .search button {
@@ -71,6 +81,7 @@ nav {
     list-style: none;
     margin: 0;
     padding: 0;
+    border-radius: 10px;
 }
 
 #left ul li {
@@ -96,5 +107,8 @@ nav {
     height: 500px;
 }
 
-
-
+#main iframe {
+    width:1200px;
+    height:700px;
+    border-radius: 10px;
+}
