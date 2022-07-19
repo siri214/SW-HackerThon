@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
     <title>JobApp</title>
+
     <link rel="stylesheet" type="text/css" href="./css/job.css" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -10,140 +12,51 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 
 <body>
+
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <img src="#">
+            <img th:src="@{apps.imgPath}">
         </div>
         <div class="col-md-8">
             <br>
-            <p>어플 이름</p>
-            <p>어플 정보</p>
-            <p>url</p>
+            <table>
+                <tr>
+                    <th>job</th>
+                    <th>recApp</th>
+                    <th>appURL</th>
+                    <th>exp</th>
+                    <th>imgPath</th>
+                </tr>
+                <tr th:each="apps : ${app}">
+                    <td th:text="${apps.job}"></td>
+                    <td th:text="${apps.recApp}"></td>
+                    <td th:text="${apps.appURL}"></td>
+                    <td th:text="${apps.exp}"></td>
+                </tr>
+            </table>
         </div>
         <div class="col-md-1">
             <br>
             <input class="btn btn-default" type="submit" value="like">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-3">
-            <img src="#"><!DOCTYPE html>
-
-            <head>
-                <meta charset="utf-8">
-                <title>JobApp</title>
-                <link rel="stylesheet" type="text/css" href="./css/job.css" />
-
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-            </head>
-
-            <body>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="./pictures/Twitter-icon.png">
-                    </div>
-                    <div class="col-md-8">
-                        <br>
-                        <p>어플 이름</p>
-                        <p>어플 정보</p>
-                        <p>url</p>
-                    </div>
-                    <div class="col-md-1">
-                        <br>
-                        <input class="btn btn-default" type="submit" value="like">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="./pictures/Twitter-icon.png">
-                    </div>
-                    <div class="col-md-8">
-                        <br>
-                        <p>어플 이름</p>
-                        <p>어플 정보</p>
-                        <p>url</p>
-                    </div>
-                    <div class="col-md-1">
-                        <br>
-                        <input class="btn btn-default" type="submit" value="like">
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-md-11">
-
-                    </div>
-                    <div class="col-md-1">
-                        <input class="btn btn-default" type="submit" value="add">
-                        <br>
-                    </div>
-                </div>
-
-            </div>
-
-            <aside>
-
-            </aside>
-
-            <section>
-
-            </section>
-
-            <footer>
-
-            </footer>
-            </body>
-
-            </html>
-        </div>
-        <div class="col-md-8">
-            <br>
-            <p>어플 이름</p>
-            <p>어플 정보</p>
-            <p>url</p>
-        </div>
-        <div class="col-md-1">
-            <br>
-            <input class="btn btn-default" type="submit" value="like">
-        </div>
-
-
-    </div>
-    <div class="row">
-        <div class="col-md-11">
-
-        </div>
-        <div class="col-md-1">
-            <input class="btn btn-default" type="submit" value="add">
-            <br>
         </div>
     </div>
 
 </div>
+<div class="row1">
+    <div class="col-md-11">
 
-<aside>
-
-</aside>
-
-<section>
-
-</section>
-
-<footer>
-
-</footer>
+    </div>
+    <div class="col-md-1">
+        left: 1250px;
+        <input class="btn btn-default" type="submit" value="add">
+        <br>
+    </div>
+</div>
 </body>
 
 </html>
