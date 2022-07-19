@@ -17,18 +17,19 @@
                 <a href="">직업</a>
             </div>
         </header>
-        <nav>
-
-        <div class="search">
-            <input type="text" placeholder="직업을 입력하세요.">
-            <button type="submit">검색</button>
-        </div>
-        </nav>
+        <form action="/main/search" method="post">
+            <nav>
+                <div class="search">
+                    <input type="text" name="userJob" placeholder="직업을 입력하세요.">
+                    <button type="submit">검색</button>
+                </div>
+            </nav>
+        </form>
 
     <aside id="left">
         <h4>카테고리</h4>
         <ul>
-            <li><a target="iframe1" href="">학생</a></li>
+            <li><a target="iframe1" href="/main/search/student">학생</a></li>
             <li><a target="iframe1" href="">경영, 사무</a></li>
             <li><a target="iframe1" href="">IT, 인터넷</a></li>
             <li><a target="iframe1" href="">마케팅, 광고 홍보</a></li>

@@ -1,6 +1,7 @@
 package Youth.SW.controller;
 
 import Youth.SW.DTO.AppDTO;
+import Youth.SW.DTO.UserDTO;
 import Youth.SW.service.MainService;
 import Youth.SW.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -34,12 +35,19 @@ public class MainController {
         return "main";
     }
 
-    @RequestMapping("/{job}")
-    public String Job(@PathVariable("job") String job, Model model){
+    @PostMapping("/search")
+    public String Search(UserDTO user, Model model){
 
-        model.addAttribute(mainService.appList(job));
+        model.addAttribute(mainService.appList(user.getUserJob()));
 
         return "main";
+    }
+    @RequestMapping("/search/{job}")
+    public String Job(@PathVariable("job") String userJob, Model model){
+
+        model.addAttribute(mainService.appList(userJob));
+
+        return "login";
 
     }
 
@@ -60,11 +68,11 @@ public class MainController {
         return "redirect:/App";
     }
 
-    @GetMapping("/App/addImg")
-    public String addImg(){
-
-        return "addExp";
-    }
+//    @RequestMapping("/App/addImg")
+//    public String addImg(){
+//
+//        return "addExp";
+//    }
 
     @PostMapping("/App/addExp")
     public String addExp(AppDTO form, String imgPath){
