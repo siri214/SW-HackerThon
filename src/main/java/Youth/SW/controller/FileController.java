@@ -2,6 +2,7 @@ package Youth.SW.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -16,13 +17,15 @@ public class FileController {
 
     @PostMapping("/main/App/addImg")
     @ResponseStatus(HttpStatus.CREATED)
-    public String upload(@RequestParam(value = "image", required = false) MultipartFile files) throws Exception {
+    public String upload(@RequestParam(value = "image", required = false) MultipartFile files, Model model) throws Exception {
 
         String originalfileName = files.getOriginalFilename();
         File dest = new File("/Users/laykis/Desktop/img/" + originalfileName);
         files.transferTo(dest);
             // TODO
 
+        model.addAttribute("filepath", dest);
+        System.out.println("pass");
         return "AppExplain";
     }
 }

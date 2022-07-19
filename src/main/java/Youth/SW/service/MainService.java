@@ -25,16 +25,15 @@ public class MainService {
     public void addApp(AppDTO form){
 
         try{
-
+            System.out.println("pass2");
             AppInfo app = new AppInfo.Builder()
                     .job(form.getJob())
-                    .recApp(form.getRecApp())
+                    .recApp(form.getAppName())
                     .appURL(form.getAppURL())
-                    .exp(form.getExp())
+                    .exp(form.getAppExp())
                     .imgPath(form.getImgPath())
                     .build();
-
-
+            System.out.println("pass3");
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -83,8 +82,8 @@ public class MainService {
             }
             app.setImgPath(ainfo.getImgPath());
             app.setAppURL(ainfo.getAppURL());
-            app.setRecApp(ainfo.getRecApp());
-            app.setExp(ainfo.getExp());
+            app.setAppName(ainfo.getRecApp());
+            app.setAppExp(ainfo.getExp());
             app.setJob(ainfo.getJob());
             app.setRid(ainfo.getId().toString());
             app.setComment(com);

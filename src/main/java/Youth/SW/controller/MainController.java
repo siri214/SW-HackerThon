@@ -32,7 +32,7 @@ public class MainController {
 
         model.addAttribute(mainService.appList(job));
 
-        return "main";
+        return "searchMain";
     }
 
     @PostMapping("/search")
@@ -40,7 +40,7 @@ public class MainController {
 
         model.addAttribute(mainService.appList(user.getUserJob()));
 
-        return "main";
+        return "searchMain";
     }
     @RequestMapping("/search/{job}")
     public String Job(@PathVariable("job") String userJob, Model model){
@@ -68,16 +68,11 @@ public class MainController {
         return "redirect:/App";
     }
 
-//    @RequestMapping("/App/addImg")
-//    public String addImg(){
-//
-//        return "addExp";
-//    }
 
     @PostMapping("/App/addExp")
-    public String addExp(AppDTO form, String imgPath){
+    public String addExp(AppDTO form){
 
-        form.setImgPath(imgPath);
+
         mainService.addApp(form);
 
         return "redirect:/App";
