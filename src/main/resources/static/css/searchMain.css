@@ -8,6 +8,7 @@ body {
 header {
     width: 100%;
     height: 100px;
+    color: #303641;
 }
 a:hover{
     text-decoration: none;
@@ -66,7 +67,7 @@ nav {
 }
 
 #left ul {
-    background-color: black;
+    background-color: #303641;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -75,12 +76,12 @@ nav {
 #left ul li {
     margin-left: 20px;
     padding-top: 5px;
-    background-color: black;
+    background-color: #303641;
     border-radius: 20px;
 }
 
 #left ul li a {
-    background-color: black;
+    background-color: #303641;
     color: white;
     text-decoration: none;
 }
