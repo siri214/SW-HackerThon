@@ -54,9 +54,9 @@ public class MainController {
     @GetMapping("/App")
     public String App(AppDTO form, Model model){
 
-        model.addAttribute(mainService.appInfo(form.getRid()));
 
-        return "app";
+
+        return "AddAppIcon";
 
     }
 

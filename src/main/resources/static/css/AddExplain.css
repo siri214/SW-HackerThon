@@ -47,6 +47,7 @@ input[type=text] {
     border: 1px solid #373b3d;
     padding: 6px 0px;
     border-radius: 3px;
+    color:white;
 }
 
 input[type=text]:focus {
@@ -72,6 +73,7 @@ textarea{
     resize:none;
     font-family:'Raleway', sans-serif;
     background-color: #373b3d;
+    color:white;
 }
 
 input[type=submit]{
