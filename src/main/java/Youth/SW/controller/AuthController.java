@@ -2,13 +2,16 @@ package Youth.SW.controller;
 
 import Youth.SW.DTO.UserDTO;
 import Youth.SW.service.AuthService;
+import Youth.SW.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -17,6 +20,7 @@ import java.io.PrintWriter;
 public class AuthController {
 
     private final AuthService authService;
+    private final UserService userService;
 
     @GetMapping("/")
     public String login(){
@@ -52,10 +56,14 @@ public class AuthController {
     }
 
     @PostMapping("/loginpro")
-    public void loginpro(UserDTO form, HttpServletRequest request, HttpServletResponse res) throws IOException {
+    public void loginpro(UserDTO form, HttpServletRequest request, HttpServletResponse res, Model model) throws IOException {
 
 
         String result = authService.login(form, request);
+        HttpSession session = request.getSession();
+
+        Long uid = userService.getUidByUserId(form.getUserId());
+
 
         if(result.equals("fail")){
             res.setContentType("text/html; charset=UTF-8");
@@ -63,11 +71,18 @@ public class AuthController {
             out.println("<script>alert('아이디 혹은 비밀번호가 일치하지 않습니다..'); location.href='/';</script>");
             out.flush();
 
+
+
         }else{
+            session.setAttribute("uid", uid);
+            session.setMaxInactiveInterval(1800);
+
             res.setContentType("text/html; charset=UTF-8");
             PrintWriter out = res.getWriter();
             out.println("<script>alert('로그인 성공!'); location.href='/main';</script>");
             out.flush();
+
+
         }
 
     }

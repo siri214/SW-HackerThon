@@ -1,60 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="utf-8">
-    <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <title>AppJob</title>
-    <link rel="stylesheet" type="text/css" href="./css/main.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <title>AppJob</title>
+        <link rel="stylesheet" type="text/css" href="./css/main.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
 <body>
-<header align=center>
-    <h1>
-        <br>
-        <a href="main.html" style="color:#303641">JobApp</a>
-    </h1>
-    <div class="member">
-        <img src="./pictures/person.png">
-        <p>정가영/학생</p>
-        <br>
-    </div>
-</header>
-<nav>
-    <br><br>
-    <hr style="border: 0.1px solid #303641; background-color: #303641;">
-    <div class="search">
-        <br><br><br><br><br>
-        <input type="text" placeholder="직업을 입력하세요.">
-        <button type="submit">검색</button>
-    </div>
-</nav>
+    <header align=center>
+        <h1>
+            <br>
+            <a href="main.html" style="color:#303641">JobApp</a>
+        </h1>
+        <div class="member">
+            <img src="./pictures/person.png">
+            <p>정가영/학생</p>
+            <br>
+        </div>
+    </header>
+    <nav>
+        <br><br>
+        <hr style="border: 0.1px solid #303641; background-color: #303641;">
+        <div class="search">
+            <br><br><br><br><br>
+            <input type="text" placeholder="직업을 입력하세요.">
+            <button type="submit">검색</button>
+        </div>
+    </nav>
 
-<aside id="left">
+    <aside id="left">
 
-    <h4>Category</h4>
-    <ul>
-        <li><a target="iframe1" href="./job.html">학생</a></li>
-        <li><a target="iframe1" href="./job.html">경영, 사무</a></li>
-        <li><a target="iframe1" href="./job.html">IT, 인터넷</a></li>
-        <li><a target="iframe1" href="./job.html">마케팅, 광고 홍보</a></li>
-        <li><a target="iframe1" href="./job.html">디자인</a></li>
-        <li><a target="iframe1" href="./job.html">서비스</a></li>
-        <li><a target="iframe1" href="./job.html">교육</a></li>
-        <li><a target="iframe1" href="./job.html">의료</a></li>
-    </ul>
-</aside>
-<section id="main">
-    <article id="article1">
-        <iframe name="iframe1" src="" width="1000px" height="500px" seamless frameBorder="0"></iframe>
-    </article>
-</section>
+        <h4>Category</h4>
+        <ul>
+            <li><a target="iframe1" href="/main/search/student">학생</a></li>
+            <li><a target="iframe1" href="/main/search/officeworker">경영, 사무</a></li>
+            <li><a target="iframe1" href="/main/search/it">IT, 인터넷</a></li>
+            <li><a target="iframe1" href="/main/search/marketer">마케팅, 광고 홍보</a></li>
+            <li><a target="iframe1" href="/main/search/designer">디자인</a></li>
+            <li><a target="iframe1" href="/main/search/service">서비스</a></li>
+            <li><a target="iframe1" href="/main/search/edu">교육</a></li>
+            <li><a target="iframe1" href="/main/search/medical">의료</a></li>
+        </ul>
+    </aside>
+    <section id="main">
+        <article id="article1">
+            <iframe name="iframe1" th:src="@{/main/search/} + ${job}" width="1000px" height="500px" seamless frameBorder="0"></iframe>
+        </article>
+    </section>
 
 
 <footer>

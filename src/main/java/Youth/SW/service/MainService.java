@@ -38,16 +38,28 @@ public class MainService {
     }
 
 
-    public List<AppInfo> appList(String userJob){
+    public List<AppDTO> appList(String userJob){
 
+        AppDTO appd = new AppDTO();
+        List<AppInfo> app = new ArrayList<>();
 
-        List<AppInfo> list = appInfoRepository.findByJob(userJob);
+        app = appInfoRepository.findByJob(userJob);
+
+        List<AppDTO> list = appd.convert(app);
 
 
         return list;
     }
 
-    public AppDTO appInfo(String rid){
+    public List<AppInfo> EappList(String userJob){
+        List<AppInfo> app = new ArrayList<>();
+
+        app = appInfoRepository.findByJob(userJob);
+
+        return app;
+    }
+
+    public AppDTO appInfo(Long id){
 
 
         List<String> com = new ArrayList<>();
@@ -55,7 +67,7 @@ public class MainService {
 
         try{
 
-            Optional<AppInfo> info = appInfoRepository.findById(Long.parseLong(rid));
+            Optional<AppInfo> info = appInfoRepository.findById(id);
 
             AppInfo ainfo = info.orElseThrow(NoSuchElementException::new);
             AppDTO app1 = new AppDTO(ainfo);
@@ -70,5 +82,13 @@ public class MainService {
 
         return app;
 
+    }
+
+    public AppInfo getApp(Long id){
+
+            Optional<AppInfo> info = appInfoRepository.findById(id);
+            AppInfo ainfo = info.orElseThrow(NoSuchElementException::new);
+
+        return ainfo;
     }
 }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>JobApp</title>
 
-    <link rel="stylesheet" type="text/css" href="./css/job.css" />
+    <link rel="stylesheet" type="text/css" href="/job.css" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -14,49 +14,57 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
-
 <body>
+<th:block th:each="apps : ${app}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img th:src="@{/print/} + ${apps.imgName}">
+            </div>
+            <div class="col-md-8">
+                <table>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <img th:src="@{apps.imgPath}">
+                    <tr>
+                        <th>Job</th>
+                        <td th:text="${apps.job}"></td>
+                    </tr>
+                    <tr>
+                        <th>appName</th>
+                        <td th:text="${apps.appName}"></td>
+                    </tr>
+                    <tr>
+                        <th>AppURL</th>
+                        <td th:text="${apps.appURL}"></td>
+                    </tr>
+
+                    </tr>
+                </table>
+
+            </div>
+            <div class="col-md-1">
+                <br>
+                <form th:action="@{/main/App/likes/}+${apps.rid}" method="post">
+                    <input class="btn btn-default" type="submit" th:value="${apps.count}">
+                </form>
+            </div>
         </div>
-        <div class="col-md-8">
-            <br>
-            <table>
-                <tr>
-                    <th>job</th>
-                    <th>recApp</th>
-                    <th>appURL</th>
-                    <th>exp</th>
-                    <th>imgPath</th>
-                </tr>
-                <tr th:each="apps : ${app}">
-                    <td th:text="${apps.job}"></td>
-                    <td th:text="${apps.recApp}"></td>
-                    <td th:text="${apps.appURL}"></td>
-                    <td th:text="${apps.exp}"></td>
-                </tr>
-            </table>
+
+
+
+
+    </div>
+    <div class="row">
+        <div class="col-md-11">
+
         </div>
         <div class="col-md-1">
+            <input class="btn btn-default" type="submit" value="add">
             <br>
-            <input class="btn btn-default" type="submit" value="like">
         </div>
     </div>
 
-</div>
-<div class="row1">
-    <div class="col-md-11">
-
     </div>
-    <div class="col-md-1">
-        left: 1250px;
-        <input class="btn btn-default" type="submit" value="add">
-        <br>
-    </div>
-</div>
+</th:block>
 </body>
 
 </html>
