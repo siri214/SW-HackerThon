@@ -3,28 +3,25 @@
 
 <head>
     <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <title>AppJob</title>
-    <link rel="stylesheet" type="text/css" href="/css/searchMain.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
 </head>
 
 <body>
-        <header align=center>
-            <h1>
-                <a href="searchMain.html">JobApp</a>
-            </h1>
-            <div class="member">
-                <a href="">회원정보</a>
-                <a href="">직업</a>
-            </div>
-        </header>
-        <form action="/main/search" method="post">
-            <nav>
-                <div class="search">
-                    <input type="text" name="userJob" placeholder="직업을 입력하세요.">
-                    <button type="submit">검색</button>
-                </div>
-            </nav>
-        </form>
+<header align=center>
+    <h1>
+        <br>
+        <a href="main.html">JobApp</a>
+    </h1>
+    <div class="member">
+        <br>
+
 
     <aside id="left">
         <h4>카테고리</h4>
@@ -45,9 +42,41 @@
         </article>
     </section>
 
-    <footer>
+    </div>
+</header>
+<nav>
 
-    </footer>
+    <div class="search">
+        <br><br><br><br>
+        <input type="text" placeholder="직업을 입력하세요.">
+        <button type="submit">검색</button>
+    </div>
+</nav>
+
+<aside id="left">
+
+    <h4>Category</h4>
+    <ul>
+        <li><a target="iframe1" href="./job.html">학생</a></li>
+        <li><a target="iframe1" href="./job.html">경영, 사무</a></li>
+        <li><a target="iframe1" href="./job.html">IT, 인터넷</a></li>
+        <li><a target="iframe1" href="./job.html">마케팅, 광고 홍보</a></li>
+        <li><a target="iframe1" href="./job.html">디자인</a></li>
+        <li><a target="iframe1" href="./job.html">서비스</a></li>
+        <li><a target="iframe1" href="./job.html">교육</a></li>
+        <li><a target="iframe1" href="./job.html">의료</a></li>
+    </ul>
+</aside>
+<section id="main">
+    <article id="article1">
+        <iframe name="iframe1"  width="1000px" height="500px" seamless></iframe>
+    </article>
+</section>
+
+
+<footer>
+
+</footer>
 </body>
 
 </html>
