@@ -2,6 +2,8 @@ package Youth.SW.controller;
 
 import Youth.SW.DTO.AppDTO;
 import Youth.SW.DTO.UserDTO;
+import Youth.SW.entity.AppInfo;
+import Youth.SW.service.LikeService;
 import Youth.SW.service.MainService;
 import Youth.SW.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -22,6 +26,8 @@ public class MainController {
 
     private final MainService mainService;
     private final UserService userService;
+    private final LikeService likeService;
+
 
     @GetMapping("")
     public String main(HttpServletRequest request, Model model){
@@ -30,7 +36,7 @@ public class MainController {
         Long uid = Long.parseLong(session.getAttribute("uid").toString());
         String job = userService.getJob(uid);
 
-        model.addAttribute(mainService.appList(job));
+        model.addAttribute("job", job);
 
         return "searchMain";
     }
@@ -43,11 +49,23 @@ public class MainController {
         return "searchMain";
     }
     @RequestMapping("/search/{job}")
-    public String Job(@PathVariable("job") String userJob, Model model){
+    public String Job(@PathVariable("job") String userJob, Model model, HttpServletRequest req){
 
-        model.addAttribute(mainService.appList(userJob));
+        HttpSession session = req.getSession();
+        Long uid = Long.parseLong(session.getAttribute("uid").toString());
+        List<AppInfo> app = mainService.EappList(userJob);
 
-        return "login";
+        List<String> count = new ArrayList<>();
+        List<AppDTO> list = mainService.appList(userJob);
+
+        for(int i = 0; i < app.size(); i++){
+            count.add(i, likeService.getCount(app.get(i)));
+            list.get(i).setCount(count.get(i));
+        }
+        System.out.println(list.get(0).getCount());
+        model.addAttribute("app", list);
+
+        return "job";
 
     }
 

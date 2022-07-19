@@ -8,6 +8,8 @@ import Youth.SW.repository.LikeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -23,14 +25,27 @@ public class LikeService {
         if(isNotAlreadyLike(user, appInfo)) {
             likeRepository.save(new Likes(user, appInfo));
             return true;
+        }else {
+            likeRepository.delete(new Likes(user, appInfo));
+            return false;
         }
 
-        return false;
     }
 
     //사용자가 이미 좋아요 한 게시물인지 체크
     private boolean isNotAlreadyLike(UserInfo user, AppInfo appInfo) {
         return likeRepository.findByUserInfoAndAppInfo(user, appInfo).isEmpty();
+    }
+
+    public String getCount(AppInfo app){
+
+        List<Likes> likeCount = likeRepository.findByAppInfo(app);
+
+        int number = likeCount.size();
+
+        String Count = Integer.toString(number);
+
+        return Count;
     }
 
 }

@@ -24,4 +24,11 @@ public class UserService {
 
         return result;
     }
+
+    public Long getUidByUserId(String userId){
+
+        UserInfo userInfo = userInfoRepository.findByUserId(userId);
+
+        return userInfo.getId();
+    }
 }

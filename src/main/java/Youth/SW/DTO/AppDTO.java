@@ -18,6 +18,7 @@ public class AppDTO {
     private String appURL;
     private String appExp;
     private String imgName;
+    private String count;
 
     public AppDTO(){
 
@@ -43,7 +44,7 @@ public class AppDTO {
 
             app.add(i, appd);
         }
-        System.out.println(app.get(2).getAppURL());
+
         return app;
 
     }
