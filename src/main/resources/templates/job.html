@@ -20,7 +20,7 @@
 
         <div class="row">
             <div class="col-md-3">
-                <img style="width:250px; height:250px; object-fit:cover" th:src="@{/print/${apps.imgName}}">
+                <img style="width:250px; height:250px; object-fit:cover" th:src="@{/print/} + ${apps.imgName}">
             </div>
             <div class="col-md-8">
                 <table>
@@ -61,16 +61,6 @@
 
     </div>
 </th:block>
-<div class="row">
-    <div class="col-md-11">
-    </div>
-    <div class="col-md-1">
-        <form action="/main/App" method="get">
-            <input class="btn btn-default" type="submit" value="add">
-        </form>
-        <br>
-    </div>
-</div>
 </body>
 
 </html>

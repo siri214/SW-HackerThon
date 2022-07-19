@@ -51,7 +51,7 @@ public class MainController {
 
         HttpSession session = request.getSession();
         Long uid = Long.parseLong(session.getAttribute("uid").toString());
-        String job = userService.getJob(uid);
+        String job = user.getUserJob();
         String name = userService.getName(uid);
 
         model.addAttribute("job", job);
@@ -59,13 +59,23 @@ public class MainController {
 
         return "searchMain";
     }
+//    @PostMapping("/search")
+//    public String Search(UserDTO user, Model model, HttpServletRequest request){
+//
+//        HttpSession session = request.getSession();
+//        Long uid = Long.parseLong(session.getAttribute("uid").toString());
+//        String job = userService.getJob(uid);
+//        String name = userService.getName(uid);
+//
+//        model.addAttribute("job", job);
+//        model.addAttribute("userName", name);
+//
+//        return "searchMain";
+//    }
     @RequestMapping("/search/{job}")
     public String Job(@PathVariable("job") String userJob, Model model, HttpServletRequest req){
 
-        HttpSession session = req.getSession();
-        Long uid = Long.parseLong(session.getAttribute("uid").toString());
         List<AppInfo> app = mainService.EappList(userJob);
-
         List<String> count = new ArrayList<>();
         List<AppDTO> list = mainService.appList(userJob);
 
@@ -88,13 +98,11 @@ public class MainController {
     }
 
     @PostMapping("/App/addExp")
-    public void addExp(AppDTO form, HttpServletRequest request, HttpServletResponse res) throws IOException {
+    public void addExp(AppDTO form, HttpServletResponse res) throws IOException {
 
-        HttpSession session = request.getSession();
-        Long uid = Long.parseLong(session.getAttribute("uid").toString());
+        String result = mainService.addApp(form);
 
-        String loc = userService.getJob(uid);
-        if(mainService.addApp(form).trim().equals("fail")){
+        if(result.trim().equals("fail")){
             res.setContentType("text/html; charset=UTF-8");
             PrintWriter out = res.getWriter();
             out.println("<script>alert('존재하는 앱입니다.'); location.href='/main';</script>");

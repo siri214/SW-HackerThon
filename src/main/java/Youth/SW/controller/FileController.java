@@ -24,7 +24,7 @@ public class FileController {
         files.transferTo(dest);
             // TODO
 
-        model.addAttribute("filepath", dest);
+        model.addAttribute("filename", originalfileName);
 
         return "AppExplain";
     }

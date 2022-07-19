@@ -32,7 +32,7 @@ public class MainService {
     public String addApp(AppDTO form){
 
         String result = "";
-
+        System.out.println(form.getImgName());
         try{
 
             if(appExist(form)){

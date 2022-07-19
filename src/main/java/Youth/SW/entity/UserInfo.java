@@ -30,12 +30,16 @@ public class UserInfo {
     }
 
     public static class Builder {
-
+        private Long id;
         private String userName;
         private String userId;
         private String userPw;
         private String userJob;
 
+        public Builder id(Long id){
+            this.id = id;
+            return this;
+        }
 
         public Builder userName(String userName) {
             this.userName = userName;
@@ -64,6 +68,7 @@ public class UserInfo {
     }
 
     public UserInfo(Builder builder) {
+        this.id = builder.id;
         this.userName = builder.userName;
         this.userId = builder.userId;
         this.userPw = builder.userPw;

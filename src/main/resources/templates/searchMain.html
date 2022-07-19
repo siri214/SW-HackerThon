@@ -29,7 +29,7 @@
         <div class="search">
             <br><br><br><br><br>
             <form action="/main/search" method="post">
-                <input type="text" placeholder="직업을 입력하세요.">
+                <input name="userJob" type="text" placeholder="직업을 입력하세요.">
                 <button type="submit">검색</button>
             </form>
         </div>
@@ -49,11 +49,13 @@
     </ul>
 </aside>
 <div class="row1">
-    <input class="btn btn-default" type="submit" value="add" style="margin-left: 1400px;">
+    <form action="/main/App" method="get">
+        <input class="btn btn-default" type="submit" value="add" style="margin-left: 1400px;">
+    </form>
 </div>
 <section id="main">
     <article id="article1">
-        <iframe name="iframe1" src="./job.html" seamless frameBorder="0">
+        <iframe name="iframe1" th:src="@{/main/search/} + ${job}" seamless frameBorder="0">
 
 
         </iframe>
