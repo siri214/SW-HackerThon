@@ -22,8 +22,6 @@ public class UserInfo {
 
     private String userJob;
 
-    private String bookMark;
-
     @OneToMany(mappedBy = "userInfo")
     private List<Likes> likeList;
 
@@ -37,7 +35,7 @@ public class UserInfo {
         private String userId;
         private String userPw;
         private String userJob;
-        private String bookMark;
+
 
         public Builder userName(String userName) {
             this.userName = userName;
@@ -59,10 +57,6 @@ public class UserInfo {
             return this;
         }
 
-        public Builder bookMark(String bookMark) {
-            this.bookMark = bookMark;
-            return this;
-        }
 
         public UserInfo build() {
             return new UserInfo(this);
@@ -74,7 +68,6 @@ public class UserInfo {
         this.userId = builder.userId;
         this.userPw = builder.userPw;
         this.userJob = builder.userJob;
-        this.bookMark = builder.bookMark;
     }
 
 }

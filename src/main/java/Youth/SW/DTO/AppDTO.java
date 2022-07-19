@@ -13,6 +13,5 @@ public class AppDTO {
     private String appURL;
     private String appExp;
     private String imgPath;
-    private String sComment;
-    private List<String> comment;
+
 }

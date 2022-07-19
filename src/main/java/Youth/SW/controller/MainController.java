@@ -60,13 +60,6 @@ public class MainController {
 
     }
 
-    @PostMapping("/App/addCom")
-    public String addCom(AppDTO form){
-
-        mainService.addCom(form);
-
-        return "redirect:/App";
-    }
 
 
     @PostMapping("/App/addExp")

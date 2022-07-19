@@ -20,7 +20,6 @@ public class AppInfo {
 
     private String exp;
 
-
     private String imgPath;
 
     @OneToMany(mappedBy = "appInfo")

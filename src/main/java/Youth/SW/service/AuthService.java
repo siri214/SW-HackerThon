@@ -75,7 +75,6 @@ public class AuthService {
                     .userPw(form.getUserPw())
                     .userName(form.getUserName())
                     .userJob(form.getUserJob())
-                    .bookMark("bookMark")
                     .build();
 
             userInfoRepository.save(user);
