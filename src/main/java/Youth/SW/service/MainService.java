@@ -39,8 +39,9 @@ public class MainService {
                 result = "fail";
             }else {
                 AppInfo app = new AppInfo.Builder()
+
                         .job(form.getJob())
-                        .recApp(form.getAppName())
+                        .appName(form.getAppName())
                         .appURL(form.getAppURL())
                         .exp(form.getAppExp())
                         .imgPath(form.getImgName())

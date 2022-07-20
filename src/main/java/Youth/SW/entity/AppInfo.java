@@ -36,18 +36,23 @@ public class AppInfo {
 
     public static class Builder{
 
+        private Long id;
         private String job;
         private String appName;
         private String appURL;
         private String exp;
         private String imgName;
 
+        public Builder id(Long id){
+            this.id = id;
+            return this;
+        }
         public Builder job(String job){
             this.job = job;
             return this;
         }
 
-        public Builder recApp(String appName){
+        public Builder appName(String appName){
             this.appName = appName;
             return this;
         }
@@ -74,6 +79,7 @@ public class AppInfo {
     }
 
     public AppInfo(Builder builder){
+        this.id = builder.id;
         this.job = builder.job;
         this.appName = builder.appName;
         this.appURL = builder.appURL;
