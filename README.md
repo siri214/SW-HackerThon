@@ -1,7 +1,8 @@
 # **SW-HackerThon**
 ---
-
 ### **원광대학교 소프트웨어중심사업단 주관 2박 3일 해커톤 대회**
+
+[hackerthon 상장.pdf](https://github.com/laykis/SW-HackerThon/files/9704163/hackerthon.pdf)
 ---
 #### **기간**  
   
@@ -26,6 +27,9 @@
 
 ###### *Back-End* : Spring Boot, JPA, MySQL
 ###### *Front-End* : HTML + CSS
+
+<img width="858" alt="구조도" src="https://user-images.githubusercontent.com/73100987/193773756-4ac9da29-8886-48ee-934d-8d03c5de7a0c.png">
+
 ---
 #### **3. 서비스 기능**
 
