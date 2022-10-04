@@ -2,7 +2,8 @@
 ---
 ### **원광대학교 소프트웨어중심사업단 주관 2박 3일 해커톤 대회**
 
-[hackerthon 상장.pdf](https://github.com/laykis/SW-HackerThon/files/9704163/hackerthon.pdf)
+![image](https://user-images.githubusercontent.com/73100987/193773841-247b92b5-b250-460c-942e-4bdd8e5b304c.png)
+
 ---
 #### **기간**  
   
